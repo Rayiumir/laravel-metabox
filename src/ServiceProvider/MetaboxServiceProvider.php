@@ -30,6 +30,6 @@ class MetaboxServiceProvider extends ServiceProvider
 
     private function _loadMigrations(): void
     {
-        $this->loadMigrationsFrom(__DIR__.'/../Database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations');
     }
 }
