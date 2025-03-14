@@ -26,10 +26,30 @@ class MetaboxServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->_loadMigrations();
+        $this->_loadPublished();
     }
 
     private function _loadMigrations(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations');
+    }
+
+    private function _loadPublished(): void
+    {
+        $this->publishes([
+            __DIR__.'/../Traits' => app_path('Traits/')
+        ],'LaravelMetaboxTrait');
+
+        $this->publishes([
+            __DIR__.'/../Models' => app_path('Models/')
+        ],'LaravelMetaboxModel');
+
+        $this->publishes([
+            __DIR__.'/../Database/migrations' => database_path('migrations')
+        ], 'LaravelMetaboxMigration');
+
+        $this->publishes([
+            __DIR__.'/../Database/factories' => database_path('factories')
+        ], 'LaravelMetaboxFactory');
     }
 }
