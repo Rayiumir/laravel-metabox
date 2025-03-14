@@ -3,10 +3,19 @@
         <img src="./art/Laravel-Metabox.png" alt="Laravel Metabox Logo">
     </a>
 </div>
+<br>
+<div align="center">
+    <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dd/rayiumir/laravel-metabox">
+    <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dm/rayiumir/laravel-metabox">
+    <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/rayiumir/laravel-metabox">
+    <img alt="Packagist License" src="https://img.shields.io/packagist/l/rayiumir/laravel-metabox">
+    <img alt="GitHub Release" src="https://img.shields.io/github/v/release/rayiumir/laravel-metabox">
+    <img alt="Packagist Dependency Version" src="https://img.shields.io/packagist/dependency-v/rayiumir/laravel-metabox/PHP">
+</div>
 
 # Laravel Metabox
 
-Meta Box is a highly useful feature for retrieving or displaying WordPress information. We decided to bring this Meta Box functionality to Laravel. With Laravel Meta Box, you can define features such as custom fields for posts without the need to create a custom field table in the database.
+MetaBox is a highly useful feature for retrieving or displaying WordPress information. We decided to bring this Meta Box functionality to Laravel. With Laravel Meta Box, you can define features such as custom fields for posts without the need to create a custom field table in the database.
 
 # Installs
 
@@ -53,7 +62,7 @@ protected static function boot(): void
 
 # Controller:
 
-To create a addMetabox field in store and update, do the following.
+To create a `addMetabox` field in store and update, do the following.
 
 ```php
 public function store(Request $request, Post $post)
@@ -80,7 +89,7 @@ public function update(Request $request, Post $post)
 
 ### create.blade.php
 
-```php
+```html
 <form action="{{ route('posts.store') }}" method="POST">
     @csrf
 
@@ -101,7 +110,7 @@ public function update(Request $request, Post $post)
 
 ### edit.blade.php
 
-```php
+```html
 <form action="{{ route('posts.update', $post->id) }}" method="POST">
     @csrf
     @method('PUT')
