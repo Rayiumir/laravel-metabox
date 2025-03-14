@@ -24,9 +24,4 @@ trait HasMetaboxes
         $metabox = $this->metaboxes()->where('key', $key)->first();
         return $metabox ? $metabox->value : null;
     }
-
-    public function removeMetabox($key)
-    {
-        return $this->metaboxes()->where('key', $key)->delete();
-    }
 }
