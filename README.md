@@ -13,6 +13,12 @@
     <img alt="Packagist Dependency Version" src="https://img.shields.io/packagist/dependency-v/rayiumir/laravel-metabox/PHP">
 </div>
 
+<div align="center">
+    <h4>Documentation</h4>
+    <a href="./Documentation/text_field.md">Text Field</a>
+    <a href="./Documentation/image_upload_field.md">Image Upload Field</a>
+</div>
+
 # Laravel Metabox
 
 MetaBox is a highly useful feature for retrieving or displaying WordPress information. We decided to bring this Meta Box functionality to Laravel. With Laravel Meta Box, you can define features such as custom fields for posts without the need to create a custom field table in the database.
@@ -60,81 +66,4 @@ protected static function boot(): void
 }
 ```
 
-# Controller:
 
-To create a `addMetabox` field in store and update, do the following.
-
-```php
-public function store(Request $request, Post $post)
-{
-    $post->update($request->only(['title', 'content']));
-
-    $post->addMetabox('metabox_field', $request->input('metabox_field'));
-
-    return back();
-}
-
-public function update(Request $request, Post $post)
-{
-
-    $post->update($request->only(['title', 'content']));
-
-    $post->addMetabox('metabox_field', $request->input('metabox_field'));
-
-    return back();
-}
-```
-
-## Views
-
-### create.blade.php
-
-```html
-<form action="{{ route('posts.store') }}" method="POST">
-    @csrf
-
-    <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title">
-    </div>
-
-
-    <div>
-        <label for="metabox_field">Metabox Field</label>
-        <input type="text" name="metabox_field" id="metabox_field">
-    </div>
-
-    <button type="submit">Save</button>
-</form>
-```
-
-### edit.blade.php
-
-```html
-<form action="{{ route('posts.update', $post->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-
-
-    <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" value="{{ $post->title }}">
-    </div>
-
-
-    <div>
-        <label for="metabox_field">Metabox Field</label>
-        <input type="text" name="metabox_field" id="metabox_field" value="{{ $post->getMetabox('metabox_field') }}">
-    </div>
-
-    <button type="submit">Save</button>
-</form>
-```
-
-# Display Metabox Data
-
-To display metabox data in your views, use the `getMetabox` method:
-
-```php
-Metabox Field: {{ $post->getMetabox('metabox_field') }}
-```
