@@ -45,11 +45,19 @@ class MetaboxServiceProvider extends ServiceProvider
         ],'LaravelMetaboxModel');
 
         $this->publishes([
+            __DIR__.'/../View/Components' => app_path('View/Components')
+        ], 'LaravelMetaboxViewComponents');
+
+        $this->publishes([
             __DIR__.'/../Database/migrations' => database_path('migrations')
         ], 'LaravelMetaboxMigration');
 
         $this->publishes([
             __DIR__.'/../Database/factories' => database_path('factories')
         ], 'LaravelMetaboxFactory');
+
+        $this->publishes([
+            __DIR__.'/../Resources/Views/components' => resource_path('Resources/views/components')
+        ], 'LaravelMetaboxResourceViewComponents');
     }
 }
