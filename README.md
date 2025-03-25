@@ -66,4 +66,14 @@ protected static function boot(): void
 }
 ```
 
+# Task Laravel Metabox
+
+- [X] Text Field
+- [X] Upload Field
+- [ ] Select Field
+- [ ] Checkbox Field
+- [ ] Radio ‌Button Field
+- [ ] Tabs Field
+- [ ] Gallery Image Field
+
 
