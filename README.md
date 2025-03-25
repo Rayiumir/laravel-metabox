@@ -15,8 +15,7 @@
 
 <div align="center">
     <h4>Documentation</h4>
-    <a href="./Documentation/text_field.md">Text Field</a>
-    <a href="./Documentation/image_upload_field.md">Image Upload Field</a>
+    <a href="./Documentation/en.md"><img alt="Static Badge" src="https://img.shields.io/badge/en-lang?style=flat-square&label=Doc"></a>
 </div>
 
 # Laravel Metabox
