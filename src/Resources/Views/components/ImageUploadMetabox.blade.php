@@ -1,7 +1,7 @@
 <div>
     <div class="imageUploadMetabox">
-        <label for="imgField">Upload Image</label>
-        <input type="file" class="form-control" name="img_field" id="imgField" accept="image/*">
+        <label for="{{ $name }}">Upload Image</label>
+        <input type="file" name="{{ $name }}" id="{{ $name }}" accept="image/*">
 
         @if ($value)
             <div class="imagePreview">
