@@ -1,5 +1,13 @@
 # Text Field
 
+### Request
+
+Request Validation field.
+
+```php
+'text_field' => ['required', 'string', 'max:255'],
+```
+
 ### Controller:
 
 To create a `addMetabox` field in store and update, do the following.
@@ -66,6 +74,14 @@ Text Field: {{ $post->getMetabox('text_field') }}
 ```
 
 # File Upload Field
+
+### Request
+
+Request Validation field.
+
+```php
+'img_field' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+```
 
 ### Controller:
 
@@ -143,5 +159,98 @@ To display metabox data in your views, use the `getMetabox` method:
 @else
     <p>No image available.</p>
 @endif
+```
+
+# Select Field
+
+### Request
+
+Request Validation field.
+
+```php
+'select_field' => 'nullable|string',
+```
+### Controller:
+
+To create a `addMetabox` Select field in store and update, do the following.
+
+```php
+public function store(Request $request, Post $post)
+{
+    $post->update($request->only(['title', 'content']));
+    
+    if ($request->has('select_field')) {
+       $post->addMetabox('select_field', $request->input('select_field'));
+    }
+        
+    return back();
+}
+
+public function update(Request $request, Post $post)
+{
+    $post->update($request->only(['title', 'content']));
+    if ($request->has('select_field')) {
+        $post->addMetabox('select_field', $request->input('select_field'));
+    }
+    return back();
+}
+```
+
+### Views
+
+- create.blade.php
+
+```html
+<form action="{{ route('posts.store') }}" method="POST">
+    @csrf
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+    </div>
+    <div>
+        <x-select-metabox
+            name="select_field"
+            :options="[
+                'news' => 'News',
+                'tutorial' => 'Tutorial',
+                'event' => 'Event',
+            ]"
+        />
+    </div>
+    <button type="submit">Save</button>
+</form>
+```
+
+- edit.blade.php
+
+```html
+<form action="{{ route('posts.update', $post->id) }}" method="POST">
+    @csrf
+    @method('PUT')
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" value="{{ $post->title }}">
+    </div>
+    <div>
+        <x-select-metabox
+            name="select_field"
+            :options="[
+                'news' => 'News',
+                'tutorial' => 'Tutorial',
+                'event' => 'Event',
+            ]"
+            :selected="$post->getMetabox('category') ?? null"
+        />
+    </div>
+    <button type="submit">Save</button>
+</form>
+```
+
+### Display Metabox Data
+
+To display metabox data in your views, use the `getMetabox` method:
+
+```php
+{{ $post->getMetabox('select_field') ?? 'No category selected' }}
 ```
 
