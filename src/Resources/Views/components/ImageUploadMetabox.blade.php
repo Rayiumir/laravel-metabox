@@ -24,16 +24,16 @@
 
         .removeImage {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #ff4444;
+            top: 0;
+            right: 0;
+            background: rgba(0,0,0,0.5);
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 25px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
             cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
         }
 
         .removeImage:hover {
