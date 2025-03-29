@@ -254,3 +254,92 @@ To display metabox data in your views, use the `getMetabox` method:
 {{ $post->getMetabox('select_field') ?? 'No category selected' }}
 ```
 
+# Checkbox Field
+
+### Request
+
+Request Validation field.
+
+```php
+'checkbox_field' => 'nullable|boolean',
+```
+### Controller:
+
+To create a `addMetabox` Checkbox field in store and update, do the following.
+
+```php
+public function store(Request $request, Post $post)
+{
+    $post->update($request->only(['title', 'content']));
+    
+    $post->addMetabox('checkbox_field', $request->has('checkbox_field') ? '1' : '0');
+        
+    return back();
+}
+
+public function update(Request $request, Post $post)
+{
+    $post->update($request->only(['title', 'content']));
+
+    $post->addMetabox('checkbox_field', $request->has('checkbox_field') ? '1' : '0');
+
+    return back();
+}
+```
+
+### Views
+
+- create.blade.php
+
+```html
+<form action="{{ route('posts.store') }}" method="POST">
+    @csrf
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+    </div>
+    <div>
+        <x-CheckboxMetabox
+            name="checkbox_field"
+            label="Enable / Disable"
+            value="1"
+        />
+    </div>
+    <button type="submit">Save</button>
+</form>
+```
+
+- edit.blade.php
+
+```html
+<form action="{{ route('posts.update', $post->id) }}" method="POST">
+    @csrf
+    @method('PUT')
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" value="{{ $post->title }}">
+    </div>
+    <div>
+        <x-CheckboxMetabox
+            name="checkbox_field"
+            label="Enable / Disable"
+            :checked="$post->getMetabox('checkbox_field') === '1'"
+            value="1"
+        />
+    </div>
+    <button type="submit">Save</button>
+</form>
+```
+
+### Display Metabox Data
+
+To display metabox data in your views, use the `getMetabox` method:
+
+```php
+@if($post->getMetabox('checkbox_field') === '1')
+    <span class="badge">Enable</span>
+@else
+    <span class="badge">Disable</span>
+@endif
+```
+
