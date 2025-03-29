@@ -71,7 +71,7 @@ protected static function boot(): void
 - [X] Upload Field
 - [X] Select Field
 - [X] Checkbox Field
-- [ ] Toggle Field
+- [X] Toggle Field
 - [ ] Radio ‌Button Field
 - [ ] Tabs Field
 - [ ] Gallery Image Field
