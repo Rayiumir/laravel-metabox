@@ -74,6 +74,6 @@ protected static function boot(): void
 - [X] Toggle Field
 - [X] Radio ‌Button Field
 - [X] Tabs Field
-- [ ] Gallery Image Field
+- [X] Gallery Image Field
 
 
