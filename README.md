@@ -70,7 +70,7 @@ protected static function boot(): void
 - [X] Text Field
 - [X] Upload Field
 - [X] Select Field
-- [ ] Checkbox Field
+- [X] Checkbox Field
 - [ ] Radio ‌Button Field
 - [ ] Tabs Field
 - [ ] Gallery Image Field
