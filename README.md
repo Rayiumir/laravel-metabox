@@ -20,7 +20,7 @@
 
 # Laravel Metabox
 
-MetaBox is a highly useful feature for retrieving or displaying WordPress information. We decided to bring this Meta Box functionality to Laravel. With Laravel Meta Box, you can define features such as custom fields for posts without the need to create a custom field table in the database.
+Metabox is a highly useful feature for retrieving or displaying WordPress information. We decided to bring this Metabox functionality to Laravel. With Laravel Metabox, you can define features such as custom fields for posts without the need to create a custom field table in the database.
 
 # Installs
 
