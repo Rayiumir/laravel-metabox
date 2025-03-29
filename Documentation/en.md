@@ -10,7 +10,7 @@ Request Validation field.
 
 ### Controller
 
-To create a `addMetabox` field in store and update, do the following.
+To create a `addMetabox` Text field in store and update, do the following.
 
 ```php
 public function store(Request $request, Post $post)
@@ -73,6 +73,13 @@ To display metabox data in your views, use the `getMetabox` method:
 Text Field: {{ $post->getMetabox('text_field') }}
 ```
 
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/text.png" alt="Text Field Metabox Laravel">
+</div>
+
+
 # File Upload Field
 
 ### Request
@@ -85,7 +92,7 @@ Request Validation field.
 
 ### Controller
 
-To create a `uploadImageMetabox` field in store and update, do the following.
+To create a `uploadImageMetabox` File Upload field in store and update, do the following.
 
 ```php
 public function store(Request $request, Post $post)
@@ -160,6 +167,12 @@ To display metabox data in your views, use the `getMetabox` method:
     <p>No image available.</p>
 @endif
 ```
+
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/uploadImage.png" alt="Text Field Metabox Laravel">
+</div>
 
 # Select Field
 
@@ -254,6 +267,12 @@ To display metabox data in your views, use the `getMetabox` method:
 {{ $post->getMetabox('select_field') ?? 'No category selected' }}
 ```
 
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/select.png" alt="Text Field Metabox Laravel">
+</div>
+
 # Checkbox Field
 
 ### Request
@@ -343,6 +362,12 @@ To display metabox data in your views, use the `getMetabox` method:
 @endif
 ```
 
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/checkbox.png" alt="Text Field Metabox Laravel">
+</div>
+
 # Toggle Field
 
 ### Controller
@@ -426,6 +451,12 @@ To display metabox data in your views, use the `getMetabox` method:
     <span class="badge">Disable</span>
 @endif
 ```
+
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/toggle.png" alt="Text Field Metabox Laravel">
+</div>
 
 # Radio Field
 
@@ -526,9 +557,17 @@ To display metabox data in your views, use the `getMetabox` method:
 @endif
 ```
 
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/radio.png" alt="Text Field Metabox Laravel">
+</div>
+
 # Tabs Field
 
 ### Views
+
+To create a `x-TabMetabox` Tabs field in store and update, do the following.
 
 - create.blade.php and edit.blade.php
 
@@ -562,7 +601,13 @@ To display metabox data in your views, use the `getMetabox` method:
 </form>
 ```
 
-# Radio Field
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/tabs.png" alt="Text Field Metabox Laravel">
+</div>
+
+# Gallery Images Field
 
 ### Request
 
@@ -572,7 +617,7 @@ To display metabox data in your views, use the `getMetabox` method:
 
 ### Controller
 
-To create a `addMetabox` Radio field in store and update, do the following.
+To create a `addMetabox` Gallery Images field in store and update, do the following.
 
 ```php
 public function store(Request $request, Post $post)
@@ -683,6 +728,12 @@ To display metabox data in your views, use the `getMetabox` method:
     @endif
 @endforeach
 ```
+
+### Screenshot
+
+<div align="center">
+    <img src="../screenshots/gallery.png" alt="Text Field Metabox Laravel">
+</div>
 
 
 
